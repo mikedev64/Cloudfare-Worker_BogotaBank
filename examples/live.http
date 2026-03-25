@@ -1,0 +1,9 @@
+POST https://cloudfareworker-bogotabank.cardozojoan13.workers.dev/api/credit/process
+content-type: application/json
+
+{
+        "ticketId": "12345",
+        "dni": "54321",
+        "monto": 25000,
+        "callbackUrl": "https://www.example.com"
+}

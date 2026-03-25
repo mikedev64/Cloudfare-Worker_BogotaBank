@@ -1,0 +1,9 @@
+GET http://localhost:8787/openapi.json
+content-type: application/json
+
+{
+        "ticketId": "12345",
+        "dni": "54321",
+        "monto": 25000,
+        "callbackUrl": "https://www.example.com"
+}
