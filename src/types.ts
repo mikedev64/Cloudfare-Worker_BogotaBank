@@ -40,6 +40,10 @@ export const CreditResponse = z.object({
 	finalStatus: z.enum(["Aprobado", "Rechazado", "Observado"]),
 });
 
+export interface ICreditBadResponse {
+	message: string;
+	statusCode: number;
+}
 export const CreditBadResponse = z.object({
 	message: z.string({ message: "Error interno del servidor." }),
 	statusCode: z.number(),
