@@ -7,6 +7,7 @@ const app = new Hono<{ Bindings: Env }>();
 const openapi = fromHono(app, {
 	docs_url: "/",
 	openapi_url: "/openapi",
+	openapiVersion: "3",
 });
 
 // Register OpenAPI endpoints
@@ -20,10 +21,9 @@ app.get("/openapi.json", async (c) => {
 	try {
 		// Si no tenemos en caché, solicitar desde /openapi
 		if (!cachedSpec) {
-			const openAPIUrl = new URL(c.req.url);
-			openAPIUrl.pathname = "/openapi";
+			const openAPIUrlPathname = "/openapi";
 
-			const res = await fetch(openAPIUrl.toString());
+			const res = await app.request(openAPIUrlPathname);
 			if (res.ok) {
 				cachedSpec = await res.json();
 			}
