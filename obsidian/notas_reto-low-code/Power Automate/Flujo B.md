@@ -1,0 +1,3 @@
+- Cuando se recibe una solicitud API desde el Cloudfare Worker hacia el **_Custom Connector_**
+- Actualizar ítem basado en su Folio/ticketId -> `actualizar item {Score, Estado, FechaRespuesta, Procesado, CallbackResult}`
+- En caso de obtener un valor `Score` nulo, incrementar ApiRetries

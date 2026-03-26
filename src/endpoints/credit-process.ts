@@ -98,8 +98,6 @@ export class CreditProcess extends OpenAPIRoute {
 		try {
 			++flowRetrys;
 
-			
-
 			console.log(`Intentos del flujo ${flowRetrys}`);
 
 			const min = 1;

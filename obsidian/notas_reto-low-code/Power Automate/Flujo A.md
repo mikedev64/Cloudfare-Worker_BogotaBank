@@ -1,0 +1,2 @@
+- Cuando se genere/cree un nuevo elemento en la lista **_Solicitudes_Credito_** -> `Item recibido {Cliente (Lookup a Clientes_DB), Monto}`
+- Editar ítem recibido para generar su Folio basado en ID único -> `actualizar item {Folio}`

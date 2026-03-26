@@ -1,0 +1,29 @@
+{
+	"nodes":[
+		{"id":"49be1f3f9a2f4e7b","type":"group","x":-1560,"y":-280,"width":940,"height":829,"label":"Power Automate"},
+		{"id":"77d3d499d0747f9e","type":"group","x":-360,"y":-256,"width":920,"height":780,"label":"Cloudfare Worker"},
+		{"id":"fee90a47c8d774f7","type":"group","x":-1580,"y":-1040,"width":980,"height":520,"label":"SharePoint"},
+		{"id":"8fed8dfda9d5d8cf","type":"group","x":-320,"y":-1017,"width":840,"height":427,"label":"Power App - Interfaz De Usuario"},
+		{"id":"a39ff32fc3299225","type":"file","file":"Power Automate/Flujo A.md","x":-1532,"y":129,"width":400,"height":400},
+		{"id":"91fd0e8776ebe205","type":"file","file":"Power Automate/Flujo B.md","x":-1040,"y":129,"width":400,"height":400},
+		{"id":"184c55b24c76f5f6","type":"file","file":"Power Automate/Definition.md","x":-1332,"y":-240,"width":492,"height":280},
+		{"id":"018c9f924f443600","type":"file","file":"SharePoint/Solicitudes_Crdito.md","x":-1060,"y":-980,"width":400,"height":400},
+		{"id":"a67bd629cfc8c515","type":"file","file":"SharePoint/Clientes_DB.md","x":-1520,"y":-980,"width":400,"height":400},
+		{"id":"8b24243ce95fbfaa","type":"text","text":"","x":-300,"y":-997,"width":781,"height":387},
+		{"id":"eabab4e41140ae1d","type":"text","text":"","x":-229,"y":-943,"width":240,"height":280},
+		{"id":"78fc0394c08ee67a","type":"text","text":"","x":91,"y":-828,"width":240,"height":50},
+		{"id":"6fd3660507e19db5","type":"text","text":"","x":91,"y":-738,"width":240,"height":50},
+		{"id":"7fe9d42ca1bfb053","type":"text","text":"EndPoint: api/credit/process","x":-320,"y":-225,"width":250,"height":60},
+		{"id":"c1e6206613ccb466","type":"file","file":"Cloudfare Worker/Definicion de la API.md","x":-320,"y":-125,"width":400,"height":629},
+		{"id":"80135c5335221617","type":"file","file":"Cloudfare Worker/Contrato.md","x":120,"y":-125,"width":400,"height":629},
+		{"id":"9c31d8559e442a34","type":"text","text":"","x":91,"y":-920,"width":240,"height":50}
+	],
+	"edges":[
+		{"id":"5609a30544871100","fromNode":"184c55b24c76f5f6","fromSide":"bottom","toNode":"a39ff32fc3299225","toSide":"top"},
+		{"id":"86d54eeaef2861e4","fromNode":"184c55b24c76f5f6","fromSide":"bottom","toNode":"91fd0e8776ebe205","toSide":"top"},
+		{"id":"7adf03beacb84fba","fromNode":"7fe9d42ca1bfb053","fromSide":"left","toNode":"91fd0e8776ebe205","toSide":"right"},
+		{"id":"f5c95b62616403cd","fromNode":"8b24243ce95fbfaa","fromSide":"bottom","toNode":"7fe9d42ca1bfb053","toSide":"right"},
+		{"id":"9195f45461653464","fromNode":"018c9f924f443600","fromSide":"left","toNode":"a67bd629cfc8c515","toSide":"right"},
+		{"id":"a01188c1c17db1e4","fromNode":"018c9f924f443600","fromSide":"bottom","toNode":"a39ff32fc3299225","toSide":"left"}
+	]
+}
