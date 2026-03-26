@@ -26,7 +26,7 @@ export class CreditProcess extends OpenAPIRoute {
 				description: "Retorna la respuesta de la evaluacion de las entradas",
 				content: {
 					"application/json": {
-						schema: CreditResponse,
+						schema: CreditBadResponse,
 					},
 				},
 			},
