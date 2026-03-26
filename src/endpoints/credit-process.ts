@@ -62,6 +62,22 @@ export class CreditProcess extends OpenAPIRoute {
 		return true;
 	}
 
+	async sendWebhook(callbackUrl: string, data: ICreditResponse): Promise<void> {
+		try {
+			await new Promise((resolve) => setTimeout(resolve, 6000));
+
+			await fetch(callbackUrl, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			});
+		} catch (error: unknown) {
+			console.error("Error enviando webhook:", error);
+		}
+	}
+
 	checkVerification(dni: string, monto: number): ICreditResponse["finalStatus"] {
 		if (monto > 50000) this.increaseRiskScore(15);
 		if (dni.length > 8) return "Aprobado";
@@ -78,7 +94,7 @@ export class CreditProcess extends OpenAPIRoute {
 		return "Aprobado";
 	}
 
-	async handle(c: AppContext): Promise<Response | ICreditResponse> {
+	async handle(c: AppContext): Promise<Response | ICreditBadResponse> {
 		try {
 			++flowRetrys;
 
@@ -120,13 +136,21 @@ export class CreditProcess extends OpenAPIRoute {
 			this.riskScore = dniLength + montoFactor + randomFactor;
 
 			const aprobacion: ICreditResponse["finalStatus"] = this.checkVerification(dni, monto);
-			flowRetrys = 0;
 
-			return {
+			const responseData: ICreditResponse = {
 				ticketId,
 				score: this.riskScore,
 				finalStatus: aprobacion,
-			} satisfies ICreditResponse;
+			};
+
+			this.sendWebhook(callbackUrl, responseData);
+
+			flowRetrys = 0;
+
+			return {
+				statusCode: 200,
+				message: "La solicitud de crédito se está procesando. Recibirá los resultados en el webhook proporcionado.",
+			} as ICreditBadResponse;
 		} catch (error: unknown) {
 			flowRetrys = 0;
 			return Response.json(
