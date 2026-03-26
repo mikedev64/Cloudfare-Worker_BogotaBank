@@ -98,6 +98,8 @@ export class CreditProcess extends OpenAPIRoute {
 		try {
 			++flowRetrys;
 
+			
+
 			console.log(`Intentos del flujo ${flowRetrys}`);
 
 			const min = 1;
@@ -143,7 +145,7 @@ export class CreditProcess extends OpenAPIRoute {
 				finalStatus: aprobacion,
 			};
 
-			this.sendWebhook(callbackUrl, responseData);
+			c.executionCtx.waitUntil(this.sendWebhook(callbackUrl, responseData));
 
 			flowRetrys = 0;
 
